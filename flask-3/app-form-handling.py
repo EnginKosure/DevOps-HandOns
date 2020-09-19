@@ -20,6 +20,15 @@ def greet():
         # ikinci birtane gondereceksek araya & koyup yeni key value yu &key=value seklinde yaziyoruz
 
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        user_name = request.form['username']
+        return render_template('secure.html', user=user_name)
+    else:
+        return render_template('login.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
